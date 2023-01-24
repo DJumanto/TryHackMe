@@ -1,0 +1,35 @@
+# Nmap 7.93 scan initiated Mon Jan 23 16:06:25 2023 as: nmap -sV -sC -oN nmap/initials 10.10.97.223
+Nmap scan report for 10.10.97.223
+Host is up (0.26s latency).
+Not shown: 997 filtered tcp ports (no-response)
+PORT     STATE SERVICE VERSION
+21/tcp   open  ftp     vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_Can't get directory listing: TIMEOUT
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:10.18.108.222
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 4
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+80/tcp   open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-title: Apache2 Ubuntu Default Page: It works
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+| http-robots.txt: 2 disallowed entries 
+|_/ /openemr-5_0_1_3 
+2222/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 294269149ecad917988c27723acda923 (RSA)
+|   256 9bd165075108006198de95ed3ae3811c (ECDSA)
+|_  256 12651b61cf4de575fef4e8d46e102af6 (ED25519)
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Jan 23 16:07:28 2023 -- 1 IP address (1 host up) scanned in 63.19 seconds
