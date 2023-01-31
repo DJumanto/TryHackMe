@@ -1,0 +1,4 @@
+/.php                [33m (Status: 403)[0m [Size: 276]
+/index.html          [32m (Status: 200)[0m [Size: 11321]
+/.html               [33m (Status: 403)[0m [Size: 276]
+/content             [36m (Status: 301)[0m [Size: 312][34m [--> http://10.10.5.174/content/][0m
