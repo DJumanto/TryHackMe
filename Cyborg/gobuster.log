@@ -1,0 +1,4 @@
+/.html               [33m (Status: 403)[0m [Size: 277]
+/index.html          [32m (Status: 200)[0m [Size: 11321]
+/admin               [36m (Status: 301)[0m [Size: 312][34m [--> http://10.10.104.63/admin/][0m
+/etc                 [36m (Status: 301)[0m [Size: 310][34m [--> http://10.10.104.63/etc/][0m
