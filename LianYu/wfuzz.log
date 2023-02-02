@@ -1,0 +1,44 @@
+********************************************************
+* Wfuzz 3.1.0 - The Web Fuzzer                         *
+********************************************************
+
+Target: http://10.10.19.43/island/2100/FUZZ.ticket
+Total requests: 87664
+
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                     
+=====================================================================
+
+000000001:   200        16 L     35 W       292 Ch      "# directory-list-2.3-small.
+                                                        txt"                        
+000000002:   200        16 L     35 W       292 Ch      "#"                         
+000000003:   200        16 L     35 W       292 Ch      "# Copyright 2007 James Fish
+                                                        er"                         
+000000004:   200        16 L     35 W       292 Ch      "#"                         
+000000010:   200        16 L     35 W       292 Ch      "#"                         
+000000006:   200        16 L     35 W       292 Ch      "# Attribution-Share Alike 3
+                                                        .0 License. To view a copy o
+                                                        f this"                     
+000000012:   200        16 L     35 W       292 Ch      "# on atleast 3 different ho
+                                                        sts"                        
+000000011:   200        16 L     35 W       292 Ch      "# Priority ordered case sen
+                                                        sative list, where entries w
+                                                        ere found"                  
+000000009:   200        16 L     35 W       292 Ch      "# Suite 300, San Francisco,
+                                                         California, 94105, USA."   
+000000013:   200        16 L     35 W       292 Ch      "#"                         
+000000008:   200        16 L     35 W       292 Ch      "# or send a letter to Creat
+                                                        ive Commons, 171 Second Stre
+                                                        et,"                        
+000000005:   200        16 L     35 W       292 Ch      "# This work is licensed und
+                                                        er the Creative Commons"    
+000000007:   200        16 L     35 W       292 Ch      "# license, visit http://cre
+                                                        ativecommons.org/licenses/by
+                                                        -sa/3.0/"                   
+000010072:   200        6 L      11 W       71 Ch       "green_arrow"               
+^C /usr/lib/python3/dist-packages/wfuzz/wfuzz.py:80: UserWarning:Finishing pending requests...
+
+Total time: 314.7999
+Processed Requests: 12265
+Filtered Requests: 12251
+Requests/sec.: 38.96125
