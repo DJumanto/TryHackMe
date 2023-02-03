@@ -1,0 +1,11 @@
+# Nmap 7.93 scan initiated Fri Feb  3 21:31:01 2023 as: nmap -sV -sC -oN nmap/initials 10.10.123.6
+Nmap scan report for 10.10.123.6
+Host is up (0.23s latency).
+Not shown: 997 filtered tcp ports (no-response)
+PORT    STATE  SERVICE VERSION
+22/tcp  closed ssh
+80/tcp  closed http
+443/tcp closed https
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Feb  3 21:31:29 2023 -- 1 IP address (1 host up) scanned in 27.18 seconds

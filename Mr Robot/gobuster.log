@@ -1,0 +1,10 @@
+/images              [36m (Status: 301)[0m [Size: 234][34m [--> http://10.10.123.6/images/][0m
+/css                 [36m (Status: 301)[0m [Size: 231][34m [--> http://10.10.123.6/css/][0m
+/image               [36m (Status: 301)[0m [Size: 0][34m [--> http://10.10.123.6/image/][0m
+/license             [32m (Status: 200)[0m [Size: 309]
+/feed                [36m (Status: 301)[0m [Size: 0][34m [--> http://10.10.123.6/feed/][0m
+/video               [36m (Status: 301)[0m [Size: 233][34m [--> http://10.10.123.6/video/][0m
+/audio               [36m (Status: 301)[0m [Size: 233][34m [--> http://10.10.123.6/audio/][0m
+/admin               [36m (Status: 301)[0m [Size: 233][34m [--> http://10.10.123.6/admin/][0m
+/blog                [36m (Status: 301)[0m [Size: 232][34m [--> http://10.10.123.6/blog/][0m
+/Image               [36m (Status: 301)[0m [Size: 0][34m [--> http://10.10.123.6/Image/][0m
