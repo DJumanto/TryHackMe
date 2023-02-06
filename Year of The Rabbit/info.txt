@@ -1,0 +1,12 @@
+Hidden dir: WExYY2Cv-qU
+
+# FTP
+username: ftpuser
+password: 5iez1wGXKfPKQ
+
+#ssh
+username: eli
+password: DSpDiM1wAEwid
+
+username: gwendoline
+password: MniVCQVhQHUNI
