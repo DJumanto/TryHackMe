@@ -104,6 +104,7 @@ we unable to access the admin page
 
 And convert is endpoint for converting our markdown file
 
+## Exploiting
 Tags for this challenge is XSS and SSRF. So what cross into my mind was, what if we able to print the content of **admin** page. Since it was processed on the server, then we will able to access the content of **/admin** using iframe. Let's just get into it.
 ```html
 <iframe src="http://localhost:5000/admin"> </iframe>
