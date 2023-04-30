@@ -1,7 +1,7 @@
 # MD2PDF
 
 In this challenge we have a website that allow us to convert markdown file to pdf file.
-![page](JPEG)
+<img src="https://github.com/DJumanto/TryHackMe/blob/main/MD2PDF/page.jpeg?raw=true" alt="main page">
 
 ## Reconnaissance
 First of all, let's do the enumeration for all open port
@@ -100,17 +100,16 @@ Progress: 39880 / 525990 (7.58%)
 ``` 
 
 we unable to access the admin page
-![admin]()
+<img src="https://github.com/DJumanto/TryHackMe/blob/main/MD2PDF/admin.jpg?raw=true" alt="admin page">
 
 And convert is endpoint for converting our markdown file
-![convert]()
 
 Tags for this challenge is XSS and SSRF. So what cross into my mind was, what if we able to print the content of **admin** page. Since it was processed on the server, then we will able to access the content of **/admin** using iframe. Let's just get into it.
-```bash
+```html
 <iframe src="http://localhost:5000/admin"> </iframe>
 ```
-![retrieve-trial]()
+<img src="https://github.com/DJumanto/TryHackMe/blob/main/MD2PDF/retrieve-admin-trial.jpg?raw=true" alt="trial">
 
 There you go
 
-![flag]()
+<img src="https://github.com/DJumanto/TryHackMe/blob/main/MD2PDF/flag.jpg?raw=true" alt="flag">
