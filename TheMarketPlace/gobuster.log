@@ -1,0 +1,11 @@
+/.html               [33m (Status: 403)[0m [Size: 153]
+/images              [36m (Status: 301)[0m [Size: 179][34m [--> /images/][0m
+/new                 [36m (Status: 302)[0m [Size: 28][34m [--> /login][0m
+/login               [32m (Status: 200)[0m [Size: 857]
+/signup              [32m (Status: 200)[0m [Size: 667]
+/admin               [33m (Status: 403)[0m [Size: 392]
+/Login               [32m (Status: 200)[0m [Size: 857]
+/messages            [36m (Status: 302)[0m [Size: 28][34m [--> /login][0m
+/New                 [36m (Status: 302)[0m [Size: 28][34m [--> /login][0m
+/NEW                 [36m (Status: 302)[0m [Size: 28][34m [--> /login][0m
+/Admin               [33m (Status: 403)[0m [Size: 392]
