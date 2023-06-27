@@ -19,3 +19,5 @@
 - Kenobi
 - MD2PDF
 - startup
+- Looking Glass
+- The Market Place
